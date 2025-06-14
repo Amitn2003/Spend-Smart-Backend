@@ -25,15 +25,14 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://spendingsmart.vercel.app'],  // Allow both origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: '*',  // Allow all origins
   credentials: true
 };
 
 app.use(cors(corsOptions));
 
 // ✅ CORRECT ORDER
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+// app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json()); // <-- This MUST be before routes
 app.use(express.urlencoded({ extended: true })); // Optional, but useful
 
