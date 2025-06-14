@@ -25,8 +25,9 @@ connectDB();
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:5173', // Allow your frontend's origin
-  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  origin: ['http://localhost:5173', 'https://spendingsmart.vercel.app'],  // Allow both origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 };
 
 app.use(cors(corsOptions));
